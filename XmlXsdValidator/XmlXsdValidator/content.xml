@@ -1,1 +1,246 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+<Aanvraagbericht xmlns="http://xmlns.alfam.nl/xsd/fdn/v1">
+<Header>
+<E-mailZender>test2@interbank.nl</E-mailZender>
+<E-mailOntvanger>test1@interbank.nl</E-mailOntvanger>
+<OntvangerNaam>27</OntvangerNaam>
+<Lognaam>INSLBW002000INFDN</Lognaam>
+<MessageRef>MAEX7.8</MessageRef>
+<BerichtVersie>004</BerichtVersie>
+<VerzendDt>
+<Dag>5</Dag>
+<Maand>9</Maand>
+<Jaar>2012</Jaar>
+</VerzendDt>
+<VerzendTijd>
+<Uur>3</Uur>
+<Minuten>47</Minuten>
+<Seconden>0</Seconden>
+</VerzendTijd>
+</Header>
+<Algemeen>
+<Viewcode>00001</Viewcode>
+<Versiecode>004</Versiecode>
+<Valuta>EUR</Valuta>
+<AanvraagVersie>201206061328</AanvraagVersie>
+<AanvraagVolgNr>1</AanvraagVolgNr>
+<TussenpersoonNr>666</TussenpersoonNr>
+<BedrijfsnaamTp>Kredietdesk</BedrijfsnaamTp>
+<ContactPersoonTp>Pietje Puk</ContactPersoonTp>
+<Maatschappij>27</Maatschappij>
+<ContactPersoonMy>Dagobert Duck</ContactPersoonMy>
+<RegistratieDt>
+<Dag>14</Dag>
+<Maand>9</Maand>
+<Jaar>2012</Jaar>
+</RegistratieDt>
+</Algemeen>
+<FdnAanvrager Volgnummer = "1">
+<SoortAanvrager>01</SoortAanvrager>
+<AchterNaam>Proefconversie</AchterNaam>
+<VoorLetters>P</VoorLetters>
+<VoorVoegsel>van</VoorVoegsel>
+<Titel>Dr</Titel>
+<GebNaam>Vrouwnaam</GebNaam>
+<VoorVoegselGebNaam>der</VoorVoegselGebNaam>
+<WoonachtigHuidigDt>
+<Dag>1</Dag>
+<Maand>8</Maand>
+<Jaar>1975</Jaar>
+</WoonachtigHuidigDt>
+<WoonachtigNlDt>
+<Dag>12</Dag>
+<Maand>8</Maand>
+<Jaar>1960</Jaar>
+</WoonachtigNlDt>
+<TelBereikbaar>J</TelBereikbaar>
+<TelefoonNrPrive>0201234567</TelefoonNrPrive>
+<TelefoonNrWerk>0107654321</TelefoonNrWerk>
+<TelefoonNrMobiel>06-11223344</TelefoonNrMobiel>
+<RekeningNr>0000056789</RekeningNr>
+<BankNaamRek>P. Proefconversie</BankNaamRek>
+<GeboorteDt>
+<Dag>1</Dag>
+<Maand>9</Maand>
+<Jaar>1953</Jaar>
+</GeboorteDt>
+<Nationaliteit>NLD</Nationaliteit>
+<Geslacht>V</Geslacht>
+<SociaalFiscaalNr>123456770</SociaalFiscaalNr>
+<RelatieTp>J</RelatieTp>
+<BedragAssPremie>500.00</BedragAssPremie>
+<Bijzonderheden>02</Bijzonderheden>
+<Adres Volgnummer = "1">
+<SoortAdres>01</SoortAdres>
+<StraatNaam>Dodewaardlaan</StraatNaam>
+<HuisNr>6</HuisNr>
+<HuisNrToevoeging>A</HuisNrToevoeging>
+<PlaatsNaam>TIEL</PlaatsNaam>
+<Postcode>4006EA</Postcode>
+<Land>NLD</Land>
+</Adres>
+<Legitimatiebewijs Volgnummer = "1">
+<Soort>RB</Soort>
+<Nummer>4972810702</Nummer>
+</Legitimatiebewijs>
+<Werksituatie Volgnummer = "1">
+<Beroep>023</Beroep>
+<AardDienstverband>01</AardDienstverband>
+<BeginDienstverbandDt>
+<Dag>1</Dag>
+<Maand>1</Maand>
+<Jaar>1990</Jaar>
+</BeginDienstverbandDt>
+<EindDienstverbandDt>
+<Dag>1</Dag>
+<Maand>12</Maand>
+<Jaar>2013</Jaar>
+</EindDienstverbandDt>
+<NawWerkgeverUitkerendeInstantie Volgnummer = "1">
+<Naam>Gemeente Tiel</Naam>
+<StraatNaam>Dodewaardlaan</StraatNaam>
+<HuisNr>6</HuisNr>
+<HuisNrToevoeging>A</HuisNrToevoeging>
+<PlaatsNaam>Tiel</PlaatsNaam>
+<Postcode>4006EA</Postcode>
+<Land>NLD</Land>
+<TelefoonNr>018-4321567</TelefoonNr>
+</NawWerkgeverUitkerendeInstantie>
+</Werksituatie>
+<Gezinssituatie Volgnummer = "1">
+<BurgerlijkeStaat>02</BurgerlijkeStaat>
+<BurgerlijkeStaatDt>
+<Dag>1</Dag>
+<Maand>3</Maand>
+<Jaar>2011</Jaar>
+</BurgerlijkeStaatDt>
+<HuwelijkseVw>N</HuwelijkseVw>
+<HuwelijkOntbonden>N</HuwelijkOntbonden>
+<WeduweWeduwnaar>N</WeduweWeduwnaar>
+<KinderenAantal>00</KinderenAantal>
+</Gezinssituatie>
+<FinancieleSituatie Volgnummer = "1">
+<NettoMaandInk>2100.00</NettoMaandInk>
+<OverigNettoMaandInk>1000.00</OverigNettoMaandInk>
+<AardOverigInk>05</AardOverigInk>
+<VoorlopigeTeruggaaf>N</VoorlopigeTeruggaaf>
+<BedragVoorlopigTerug>100.00</BedragVoorlopigTerug>
+<EigenWoning>J</EigenWoning>
+<Hypotheek>J</Hypotheek>
+<BrutoMndHypotheek>300.00</BrutoMndHypotheek>
+<HypotheekRestSchuld>150000.00</HypotheekRestSchuld>
+<BedragHypLening>185000.00</BedragHypLening>
+<RentePctHypotheek>5.30</RentePctHypotheek>
+<RentevastEindDt>
+<Dag>1</Dag>
+<Maand>4</Maand>
+<Jaar>2016</Jaar>
+</RentevastEindDt>
+<HypotheekMaatschappij>Rabobank</HypotheekMaatschappij>
+<VOVwaarde>200000.00</VOVwaarde>
+<GasWaterLicht>300.00</GasWaterLicht>
+<EigenAuto>J</EigenAuto>
+<LopendeLeningen>J</LopendeLeningen>
+</FinancieleSituatie>
+<Lening Volgnummer = "1">
+<LeningInlossen>J</LeningInlossen>
+<LeningMaatschappij>Rabobank</LeningMaatschappij>
+<Contractnummer>112</Contractnummer>
+<RekNrOversluiting>123456789</RekNrOversluiting>
+<BedragMndAflos>80.00</BedragMndAflos>
+<BedragNogInlossen>4000.00</BedragNogInlossen>
+<GeldigheidInlosDt>
+<Dag>11</Dag>
+<Maand>4</Maand>
+<Jaar>2014</Jaar>
+</GeldigheidInlosDt>
+</Lening>
+</FdnAanvrager>
+<FdnAanvrager Volgnummer = "2">
+<SoortAanvrager>02</SoortAanvrager>
+<AchterNaam>Proefjetwee</AchterNaam>
+<VoorLetters>H.</VoorLetters>
+<WoonachtigHuidigDt>
+<Dag>1</Dag>
+<Maand>8</Maand>
+<Jaar>1975</Jaar>
+</WoonachtigHuidigDt>
+<TelBereikbaar>J</TelBereikbaar>
+<TelefoonNrPrive>0201234567</TelefoonNrPrive>
+<GeboorteDt>
+<Dag>1</Dag>
+<Maand>1</Maand>
+<Jaar>1956</Jaar>
+</GeboorteDt>
+<Nationaliteit>NLD</Nationaliteit>
+<Geslacht>M</Geslacht>
+<SociaalFiscaalNr>123456770</SociaalFiscaalNr>
+<RelatieTp>J</RelatieTp>
+<Adres Volgnummer = "1">
+<SoortAdres>01</SoortAdres>
+<StraatNaam>Dodewaardlaan</StraatNaam>
+<HuisNr>6</HuisNr>
+<PlaatsNaam>TIEL</PlaatsNaam>
+<Postcode>4006EA</Postcode>
+<Land>NLD</Land>
+</Adres>
+<Werksituatie Volgnummer = "1">
+<Beroep>023</Beroep>
+<AardDienstverband>01</AardDienstverband>
+<BeginDienstverbandDt>
+<Dag>1</Dag>
+<Maand>1</Maand>
+<Jaar>1985</Jaar>
+</BeginDienstverbandDt>
+<NawWerkgeverUitkerendeInstantie Volgnummer = "1">
+<Naam>Gemeente Amsterdam</Naam>
+<PlaatsNaam>Amsterdam</PlaatsNaam>
+</NawWerkgeverUitkerendeInstantie>
+</Werksituatie>
+<Gezinssituatie Volgnummer = "1">
+<BurgerlijkeStaat>02</BurgerlijkeStaat>
+<HuwelijkseVw>N</HuwelijkseVw>
+<HuwelijkOntbonden>N</HuwelijkOntbonden>
+<WeduweWeduwnaar>N</WeduweWeduwnaar>
+<KinderenAantal>00</KinderenAantal>
+</Gezinssituatie>
+<FinancieleSituatie Volgnummer = "1">
+<NettoMaandInk>1400.00</NettoMaandInk>
+<VoorlopigeTeruggaaf>N</VoorlopigeTeruggaaf>
+<EigenWoning>J</EigenWoning>
+<Hypotheek>J</Hypotheek>
+<LopendeLeningen>N</LopendeLeningen>
+</FinancieleSituatie>
+</FdnAanvrager>
+<KredietAanvraag Volgnummer = "1">
+<Contractnummer>217586984</Contractnummer>
+<SoortAanvraag>01</SoortAanvraag>
+<ProduktCodeNaam>003/DK 1.5%</ProduktCodeNaam>
+<LeningBedrag>15000.00</LeningBedrag>
+<MndAflosBedrag>225.00</MndAflosBedrag>
+<GevrBedrInHanden>1000.00</GevrBedrInHanden>
+<BerekWijzeTermBedrg>01</BerekWijzeTermBedrg>
+<AflosPct>1.5</AflosPct>
+<Zekerheid>N</Zekerheid>
+<Bestedingsdoel>99</Bestedingsdoel>
+<ToelichtingBestDoel>Caravan</ToelichtingBestDoel>
+<Sparen>J</Sparen>
+<BedragSparenMnd>100.00</BedragSparenMnd>
+</KredietAanvraag>
+<BKRoutput>
+<ToetsDt>
+<Dag>22</Dag>
+<Maand>4</Maand>
+<Jaar>2013</Jaar>
+</ToetsDt>
+</BKRoutput>
+<VrijeTekst Volgnummer = "1">
+<TekstRegel Regelnummer="1">BNConv: BrutoInk 1 is: 3570.00 BrutoInk 2 is: 1530.00</TekstRegel>
+</VrijeTekst>
+<XX>
+<XX_DOSSIER>2012092612</XX_DOSSIER>
+<XX_AANVRNR>2012092612</XX_AANVRNR>
+<XX_FASE>1</XX_FASE>
+</XX>
+</Aanvraagbericht>
+

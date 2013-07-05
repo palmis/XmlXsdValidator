@@ -94,7 +94,7 @@ namespace XmlXsdValidator
     private static void ValidationReport()
     {
       Console.WriteLine("|=======================================|");
-      Console.WriteLine("Xml {0}", _issueCounter > 0 ? "is valid" : "is not valid");
+      Console.WriteLine("Xml {0}", _issueCounter > 0 ? "is not valid" : "is valid");
       if (_issueCounter > 0)
       {
         Console.WriteLine("{0} Warnings or Errors",_issueCounter);

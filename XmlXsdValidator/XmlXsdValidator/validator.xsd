@@ -1,1 +1,1121 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by R Bos (InterCommIT b.v.) -->
+<xsd:schema xmlns:fo="http://www.w3.org/1999/XSL/Format"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://xmlns.alfam.nl/xsd/fdn/v1"
+	 targetNamespace="http://xmlns.alfam.nl/xsd/fdn/v1"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+
+	<!--	======= FDN Aanvraagbericht (AVB) versie 006 28-09-2010======== 
+			This XSD is used to map and validate only the FDN 6.0 input message 
+	-->
+	<xsd:element name="Aanvraagbericht" type="AanvraagberichtType"/>
+	<xsd:complexType name="AanvraagberichtType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="HeaderType"/>
+			<xsd:element name="Algemeen" type="AlgemeenType"/>
+			<xsd:element name="FdnAanvrager" type="FdnAanvragerType" maxOccurs="9"/>
+			<xsd:element name="KredietAanvraag" type="KredietAanvraagType" maxOccurs="3"/>
+			<xsd:element name="BKRoutput" type="BKRoutputType" minOccurs="0"/>
+			<xsd:element name="VrijeTekst" type="VrijeTekstType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HeaderType">
+		<xsd:sequence>
+			<xsd:element name="E-mailZender" type="string50Type"/>
+			<xsd:element name="E-mailOntvanger" type="string50Type"/>
+			<xsd:element name="OntvangerNaam" type="MaatschappijType"/>
+			<xsd:element name="Lognaam" type="string17Type"/>
+			<xsd:element name="MessageRef" type="string50Type"/>
+			<xsd:element name="BerichtVersie" type="string50Type"/>
+			<xsd:element name="VerzendDt" type="DtType"/>
+			<xsd:element name="VerzendTijd" type="TijdType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AlgemeenType">
+		<xsd:sequence>
+			<xsd:element name="Viewcode" type="ViewcodeType"/>
+			<xsd:element name="Versiecode" type="VersiecodeType"/>
+			<xsd:element name="Valuta" type="ValutaType" minOccurs="0"/>
+			<xsd:element name="AanvraagVersie" type="AanvraagVersieType"/>
+			<xsd:element name="AanvraagVolgNr" type="AanvraagVolgNrType"/>
+			<xsd:element name="TussenpersoonNr" type="TussenpersoonNrType"/>
+			<xsd:element name="BedrijfsnaamTp" type="string35Type"/>
+			<xsd:element name="ContactPersoonTp" type="string35Type" minOccurs="0"/>
+			<xsd:element name="Maatschappij" type="MaatschappijType"/>
+			<xsd:element name="ContactPersoonMy" type="string35Type" minOccurs="0"/>
+			<xsd:element name="RegistratieDt" type="DtType"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="FdnAanvragerType">
+		<xsd:sequence>
+			<xsd:element name="SoortAanvrager" type="SoortAanvragerType"/>
+			<xsd:element name="AchterNaam" type="string35Type"/>
+			<xsd:element name="VoorLetters" type="VoorLettersType"/>
+			<xsd:element name="VoorVoegsel" type="VoorVoegselType" minOccurs="0"/>
+			<xsd:element name="Titel" type="TitelType" minOccurs="0"/>
+			<xsd:element name="GebNaam" type="string35Type" minOccurs="0"/>
+			<xsd:element name="VoorVoegselGebNaam" type="VoorVoegselType" minOccurs="0"/>
+			<xsd:element name="WoonachtigHuidigDt" type="DtType" minOccurs="0"/>
+			<xsd:element name="WoonachtigNlDt" type="DtType" minOccurs="0"/>
+			<xsd:element name="Verblijfsvergunning" type="JaNeeType" minOccurs="0"/>
+			<xsd:element name="SoortVerblijfsvergunning" type="SoortVerblijfsvergunningType" minOccurs="0"/>
+			<xsd:element name="Werkvergunning" type="JaNeeType" minOccurs="0"/>
+			<xsd:element name="TelBereikbaar" type="JaNeeType"/>
+			<xsd:element name="TelefoonNrPrive" type="TelefoonNrType" minOccurs="0"/>
+			<xsd:element name="TelefoonNrWerk" type="TelefoonNrType" minOccurs="0"/>
+			<xsd:element name="TelefoonNrMobiel" type="TelefoonNrType" minOccurs="0"/>
+			<xsd:element name="Emailadres" type="EmailadresType" minOccurs="0"/>
+			<xsd:element name="RekeningNr" type="RekeningNrType" minOccurs="0"/>
+			<xsd:element name="BankNaamRek" type="string35Type" minOccurs="0"/>
+			<xsd:element name="GeboorteDt" type="DtType"/>
+			<xsd:element name="Nationaliteit" type="LandType"/>
+			<xsd:element name="Geslacht" type="GeslachtType"/>
+			<xsd:element name="SociaalFiscaalNr" type="SociaalFiscaalNrType" minOccurs="0"/>
+			<xsd:element name="RelatieTp" type="JaNeeType"/>
+			<xsd:element name="BedragAssPremie" type="BedragType" minOccurs="0"/>
+			<xsd:element name="Bijzonderheden" type="BijzonderhedenType" minOccurs="0"/>
+			<xsd:element name="Adres" type="AdresType" maxOccurs="3"/>
+			<xsd:element name="Legitimatiebewijs" type="LegitimatiebewijsType" minOccurs="0"/>
+			<xsd:element name="Werksituatie" type="WerksituatieType" maxOccurs="9"/>
+			<xsd:element name="Gezinssituatie" type="GezinssituatieType"/>
+			<xsd:element name="FinancieleSituatie" type="FinancieleSituatieType"/>
+			<xsd:element name="Lening" type="LeningType" minOccurs="0" maxOccurs="99"/> <!-- dbr001al @ 20110127 - df2 nazorg defect 315 - van 9 naar 99 -->
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="AdresType">
+		<xsd:sequence>
+			<xsd:element name="SoortAdres" type="SoortAdresType"/>
+			<xsd:element name="StraatNaam" type="string35Type"/>
+			<xsd:element name="HuisNr" type="HuisNrType"/>
+			<xsd:element name="HuisNrToevoeging" type="HuisNrToevoegingType" minOccurs="0"/>
+			<xsd:element name="PlaatsNaam" type="PlaatsNaamType"/>
+			<xsd:element name="Postcode" type="PostcodeType"/>
+			<xsd:element name="Land" type="LandType"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="LegitimatiebewijsType">
+		<xsd:sequence>
+			<xsd:element name="Soort" type="SoortType" minOccurs="0"/>
+			<xsd:element name="Nummer" type="string35Type" minOccurs="0"/>
+			<xsd:element name="Land" type="LandType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="WerksituatieType">
+		<xsd:sequence>
+			<xsd:element name="Beroep" type="BeroepType"/>
+			<xsd:element name="KansOpHerstel" type="JaNeeType" minOccurs="0"/>
+			<xsd:element name="AardDienstverband">
+				<xsd:simpleType>
+					<xsd:restriction base="DienstVerbandType"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="BeginDienstverbandDt" type="DtType" minOccurs="0"/>
+			<xsd:element name="EindDienstverbandDt" type="DtType" minOccurs="0"/>
+			<xsd:element name="LaatsteKeuringDt" type="DtType" minOccurs="0"/>
+			<xsd:element name="NawWerkgeverUitkerendeInstantie" type="NawWerkgeverUitkerendeInstantieType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="NawWerkgeverUitkerendeInstantieType">
+		<xsd:sequence>
+			<xsd:element name="Naam" type="string35Type"/>
+			<xsd:element name="StraatNaam" type="string35Type" minOccurs="0"/>
+			<xsd:element name="HuisNr" type="HuisNrType" minOccurs="0"/>
+			<xsd:element name="HuisNrToevoeging" type="HuisNrToevoegingType" minOccurs="0"/>
+			<xsd:element name="PlaatsNaam" type="PlaatsNaamType" minOccurs="0"/>
+			<xsd:element name="Postcode" type="PostcodeType" minOccurs="0"/>
+			<xsd:element name="Land" type="LandType" minOccurs="0"/>
+			<xsd:element name="TelefoonNr" type="TelefoonNrType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="GezinssituatieType">
+		<xsd:sequence>
+			<xsd:element name="BurgerlijkeStaat" type="BurgerlijkeStaatType"/>
+			<xsd:element name="BurgelijkeStaatDt" type="DtType" minOccurs="0"/>
+			<xsd:element name="HuwelijkseVw" type="JaNeeType" minOccurs="0"/>
+			<xsd:element name="HuwelijkOntbonden" type="JaNeeType"/>
+			<xsd:element name="ScheidingDt" type="DtType" minOccurs="0"/>
+			<xsd:element name="WeduweWeduwnaar" type="JaNeeType" minOccurs="0"/>
+			<xsd:element name="KinderenAantal" type="KinderenAantalType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="FinancieleSituatieType">
+		<xsd:sequence>
+			<xsd:element name="BrutoMaandInk" type="BedragType"/>
+			<xsd:element name="NettoMaandInk" type="BedragType" minOccurs="0"/>
+			<xsd:element name="OverigNettoMaandInk" type="BedragType" minOccurs="0"/>
+			<xsd:element name="AardOverigInk" type="AardOverigInkType" minOccurs="0"/>
+			<xsd:element name="VoorlopigeTeruggaaf" type="JaNeeType"/>
+			<xsd:element name="BedragVoorlopigTerug" type="BedragType" minOccurs="0"/>
+			<xsd:element name="EigenWoning" type="JaNeeType"/>
+			<xsd:element name="Hypotheek" type="JaNeeType" minOccurs="0"/>
+			<xsd:element name="BrutoMndHypotheek" type="BedragType" minOccurs="0"/>
+			<xsd:element name="HypotheekRestSchuld" type="BedragType" minOccurs="0"/>
+			<xsd:element name="BedragHypLening" type="BedragType" minOccurs="0"/>
+			<xsd:element name="RentePctHypotheek" type="PctType" minOccurs="0"/>
+			<xsd:element name="RentevastEindDt" type="DtType" minOccurs="0"/>
+			<xsd:element name="HypotheekMaatschappij" type="string35Type" minOccurs="0"/>
+			<xsd:element name="VOVwaarde" type="BedragType" minOccurs="0"/>
+			<xsd:element name="HuurMnd" type="BedragType" minOccurs="0"/>
+			<xsd:element name="KostgeldBedrag" type="BedragType" minOccurs="0"/>
+			<xsd:element name="GasWaterLicht" type="BedragType" minOccurs="0"/>
+			<xsd:element name="EigenAuto" type="JaNeeType" minOccurs="0"/>
+			<xsd:element name="BrutoAlimentatieUitg" type="BedragType" minOccurs="0"/>
+			<xsd:element name="LopendeLeningen" type="JaNeeType"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="LeningType">
+		<xsd:sequence>
+			<xsd:element name="SoortLening" type="SoortLeningType" minOccurs="0"/>
+			<xsd:element name="LeningInlossen" type="JaNeeType"/>
+			<xsd:element name="LeningMaatschappij" type="string35Type" minOccurs="0"/>
+			<xsd:element name="Contractnummer" type="string35Type" minOccurs="0"/>
+			<xsd:element name="RekNrOversluiting" type="RekeningNrType" minOccurs="0"/>
+			<xsd:element name="BedragMndAflos" type="BedragType" minOccurs="0"/>
+			<xsd:element name="BedragNogInlossen" type="BedragType" minOccurs="0"/>
+			<xsd:element name="GeldigheidInlosDt" type="DtType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="KredietAanvraagType">
+		<xsd:sequence>
+			<xsd:element name="Contractnummer" type="string35Type" minOccurs="0"/>
+			<xsd:element name="DuurInMnd" type="MndType" minOccurs="0"/>
+			<xsd:element name="SoortAanvraag" type="SoortAanvraagType"/>
+			<xsd:element name="ProduktCodeNaam" type="string20Type" minOccurs="0"/>
+			<xsd:element name="LeningBedrag" type="BedragType"/>
+			<xsd:element name="MndAflosBedrag" type="BedragType" minOccurs="0"/>
+			<xsd:element name="GevrBedrInHanden" type="BedragType" minOccurs="0"/>
+			<xsd:element name="Ballonbedrag" type="BedragType" minOccurs="0"/>
+			<xsd:element name="FictLooptijdMnd" type="MndType" minOccurs="0"/>
+			<xsd:element name="BerekWijzeTermBedrg" type="BerekWijzeTermBedrgType" minOccurs="0"/>
+			<xsd:element name="AflosPct" type="PctType" minOccurs="0"/>
+			<xsd:element name="AantalLevOR" type="AantalLevORType" minOccurs="0"/>
+			<xsd:element name="Zekerheid" type="JaNeeType" minOccurs="0"/>
+			<xsd:element name="Bestedingsdoel" type="BestedingsdoelType" minOccurs="0"/>
+			<xsd:element name="ToelichtingBestDoel" type="string70Type" minOccurs="0"/>
+			<xsd:element name="MerkObject" type="string35Type" minOccurs="0"/>
+			<xsd:element name="TypeObject" type="string35Type" minOccurs="0"/>
+			<xsd:element name="BouwjaarObject" type="JaarType" minOccurs="0"/>
+			<xsd:element name="KoopsomWaardeObj" type="BedragType" minOccurs="0"/>
+			<xsd:element name="Sparen" type="JaNeeType" minOccurs="0"/>
+			<xsd:element name="BedragSparenMnd" type="BedragType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="BKRoutputType">
+		<xsd:sequence>
+			<xsd:element name="ToetsDt" type="DtType"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="VrijeTekstType">
+		<xsd:sequence>
+			<xsd:element name="TekstRegel" type="TekstRegelType" minOccurs="0" maxOccurs="99"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+
+	<!-- ======================== DataType ======================== -->
+	<xsd:simpleType name="ViewcodeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="00001"/>
+			<xsd:enumeration value="00002"/>
+			<xsd:enumeration value="00003"/>
+			<xsd:enumeration value="00004"/>
+			<xsd:enumeration value="00005"/>
+			<xsd:enumeration value="00006"/>
+			<xsd:enumeration value="00007"/>
+			<xsd:enumeration value="00008"/>
+			<xsd:enumeration value="00009"/>
+			<xsd:enumeration value="00010"/>
+			<xsd:enumeration value="00011"/>
+			<xsd:enumeration value="00012"/>
+			<xsd:enumeration value="00013"/>
+			<xsd:enumeration value="00014"/>
+			<xsd:enumeration value="00015"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ContactopvoercodeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VersiecodeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="006"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MaatschappijType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="04"/>
+			<xsd:enumeration value="05"/>
+			<xsd:enumeration value="07"/>
+			<xsd:enumeration value="08"/>
+			<xsd:enumeration value="09"/>
+			<xsd:enumeration value="10"/>
+			<xsd:enumeration value="11"/>
+			<xsd:enumeration value="15"/>
+			<xsd:enumeration value="16"/>
+			<xsd:enumeration value="17"/>
+			<xsd:enumeration value="18"/>
+			<xsd:enumeration value="19"/>
+			<xsd:enumeration value="20"/>
+			<xsd:enumeration value="21"/>
+			<xsd:enumeration value="22"/>
+			<xsd:enumeration value="24"/>
+			<xsd:enumeration value="25"/>
+			<xsd:enumeration value="26"/>
+			<xsd:enumeration value="27"/>
+			<xsd:enumeration value="28"/>
+			<xsd:enumeration value="29"/>
+			<xsd:enumeration value="30"/>
+			<xsd:enumeration value="32"/>
+			<xsd:enumeration value="33"/>
+			<xsd:enumeration value="36"/>
+			<xsd:enumeration value="37"/>
+			<xsd:enumeration value="38"/>
+			<xsd:enumeration value="39"/>
+			<xsd:enumeration value="40"/>
+			<xsd:enumeration value="41"/>
+			<xsd:enumeration value="42"/>
+			<xsd:enumeration value="43"/>
+			<xsd:enumeration value="46"/>
+			<xsd:enumeration value="47"/>
+			<xsd:enumeration value="48"/>
+			<xsd:enumeration value="49"/>
+			<xsd:enumeration value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ValutaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="EUR"/>
+			<xsd:enumeration value="NLG"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SoortAanvragerType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TitelType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DR"/>
+			<xsd:enumeration value="DR.IR"/>
+			<xsd:enumeration value="DRS"/>
+			<xsd:enumeration value="ING"/>
+			<xsd:enumeration value="IR"/>
+			<xsd:enumeration value="MR"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="JaNeeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="J"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LandType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AFG"/>
+			<xsd:enumeration value="ALB"/>
+			<xsd:enumeration value="DZA"/>
+			<xsd:enumeration value="AND"/>
+			<xsd:enumeration value="AGO"/>
+			<xsd:enumeration value="AIA"/>
+			<xsd:enumeration value="ATA"/>
+			<xsd:enumeration value="ATG"/>
+			<xsd:enumeration value="ARG"/>
+			<xsd:enumeration value="ARM"/>
+			<xsd:enumeration value="ABW"/>
+			<xsd:enumeration value="AUS"/>
+			<xsd:enumeration value="AZE"/>
+			<xsd:enumeration value="BHS"/>
+			<xsd:enumeration value="BHR"/>
+			<xsd:enumeration value="BGD"/>
+			<xsd:enumeration value="BRB"/>
+			<xsd:enumeration value="BEL"/>
+			<xsd:enumeration value="BLZ"/>
+			<xsd:enumeration value="BEN"/>
+			<xsd:enumeration value="BMU"/>
+			<xsd:enumeration value="BTN"/>
+			<xsd:enumeration value="BOL"/>
+			<xsd:enumeration value="BIH"/>
+			<xsd:enumeration value="BWA"/>
+			<xsd:enumeration value="BVT"/>
+			<xsd:enumeration value="BRA"/>
+			<xsd:enumeration value="IOT"/>
+			<xsd:enumeration value="BRN"/>
+			<xsd:enumeration value="BGR"/>
+			<xsd:enumeration value="BFA"/>
+			<xsd:enumeration value="BDI"/>
+			<xsd:enumeration value="KHM"/>
+			<xsd:enumeration value="CAN"/>
+			<xsd:enumeration value="CYM"/>
+			<xsd:enumeration value="CAF"/>
+			<xsd:enumeration value="CHL"/>
+			<xsd:enumeration value="CHN"/>
+			<xsd:enumeration value="CXR"/>
+			<xsd:enumeration value="CCK"/>
+			<xsd:enumeration value="COL"/>
+			<xsd:enumeration value="COM"/>
+			<xsd:enumeration value="COK"/>
+			<xsd:enumeration value="CRI"/>
+			<xsd:enumeration value="CUB"/>
+			<xsd:enumeration value="CYP"/>
+			<xsd:enumeration value="DNK"/>
+			<xsd:enumeration value="DJI"/>
+			<xsd:enumeration value="DMA"/>
+			<xsd:enumeration value="DOM"/>
+			<xsd:enumeration value="DEU"/>
+			<xsd:enumeration value="EGY"/>
+			<xsd:enumeration value="SLV"/>
+			<xsd:enumeration value="ECU"/>
+			<xsd:enumeration value="GNQ"/>
+			<xsd:enumeration value="ERI"/>
+			<xsd:enumeration value="EST"/>
+			<xsd:enumeration value="ETH"/>
+			<xsd:enumeration value="FRO"/>
+			<xsd:enumeration value="FLK"/>
+			<xsd:enumeration value="FJI"/>
+			<xsd:enumeration value="PHL"/>
+			<xsd:enumeration value="FIN"/>
+			<xsd:enumeration value="FRA"/>
+			<xsd:enumeration value="GUF"/>
+			<xsd:enumeration value="PYF"/>
+			<xsd:enumeration value="ATF"/>
+			<xsd:enumeration value="GAB"/>
+			<xsd:enumeration value="GMB"/>
+			<xsd:enumeration value="GEO"/>
+			<xsd:enumeration value="SGS"/>
+			<xsd:enumeration value="GHA"/>
+			<xsd:enumeration value="GIB"/>
+			<xsd:enumeration value="GRD"/>
+			<xsd:enumeration value="GRC"/>
+			<xsd:enumeration value="GRL"/>
+			<xsd:enumeration value="GLP"/>
+			<xsd:enumeration value="GUM"/>
+			<xsd:enumeration value="GTM"/>
+			<xsd:enumeration value="GIN"/>
+			<xsd:enumeration value="GNB"/>
+			<xsd:enumeration value="GUY"/>
+			<xsd:enumeration value="HTI"/>
+			<xsd:enumeration value="HMD"/>
+			<xsd:enumeration value="SHN"/>
+			<xsd:enumeration value="HND"/>
+			<xsd:enumeration value="HUN"/>
+			<xsd:enumeration value="HKG"/>
+			<xsd:enumeration value="IRL"/>
+			<xsd:enumeration value="ISL"/>
+			<xsd:enumeration value="IND"/>
+			<xsd:enumeration value="IDN"/>
+			<xsd:enumeration value="IRQ"/>
+			<xsd:enumeration value="IRN"/>
+			<xsd:enumeration value="ISR"/>
+			<xsd:enumeration value="ITA"/>
+			<xsd:enumeration value="CIV"/>
+			<xsd:enumeration value="JAM"/>
+			<xsd:enumeration value="JPN"/>
+			<xsd:enumeration value="YEM"/>
+			<xsd:enumeration value="YUG"/>
+			<xsd:enumeration value="JOR"/>
+			<xsd:enumeration value="CPV"/>
+			<xsd:enumeration value="CMR"/>
+			<xsd:enumeration value="QAT"/>
+			<xsd:enumeration value="KAZ"/>
+			<xsd:enumeration value="KEN"/>
+			<xsd:enumeration value="KGZ"/>
+			<xsd:enumeration value="KIR"/>
+			<xsd:enumeration value="KNA"/>
+			<xsd:enumeration value="COG"/>
+			<xsd:enumeration value="HRV"/>
+			<xsd:enumeration value="KWT"/>
+			<xsd:enumeration value="LAO"/>
+			<xsd:enumeration value="LSO"/>
+			<xsd:enumeration value="LVA"/>
+			<xsd:enumeration value="LBN"/>
+			<xsd:enumeration value="LBR"/>
+			<xsd:enumeration value="LBY"/>
+			<xsd:enumeration value="LIE"/>
+			<xsd:enumeration value="LTU"/>
+			<xsd:enumeration value="LCA"/>
+			<xsd:enumeration value="LUX"/>
+			<xsd:enumeration value="VIR"/>
+			<xsd:enumeration value="VGB"/>
+			<xsd:enumeration value="MAC"/>
+			<xsd:enumeration value="MDG"/>
+			<xsd:enumeration value="MWI"/>
+			<xsd:enumeration value="MDV"/>
+			<xsd:enumeration value="MYS"/>
+			<xsd:enumeration value="MLI"/>
+			<xsd:enumeration value="MLT"/>
+			<xsd:enumeration value="MNP"/>
+			<xsd:enumeration value="MAR"/>
+			<xsd:enumeration value="MHL"/>
+			<xsd:enumeration value="MTQ"/>
+			<xsd:enumeration value="MRT"/>
+			<xsd:enumeration value="MUS"/>
+			<xsd:enumeration value="MYT"/>
+			<xsd:enumeration value="MEX"/>
+			<xsd:enumeration value="FSM"/>
+			<xsd:enumeration value="MOZ"/>
+			<xsd:enumeration value="MDA"/>
+			<xsd:enumeration value="MCO"/>
+			<xsd:enumeration value="MNG"/>
+			<xsd:enumeration value="MSR"/>
+			<xsd:enumeration value="MMR"/>
+			<xsd:enumeration value="NAM"/>
+			<xsd:enumeration value="NRU"/>
+			<xsd:enumeration value="NLD"/>
+			<xsd:enumeration value="ANT"/>
+			<xsd:enumeration value="NPL"/>
+			<xsd:enumeration value="NIC"/>
+			<xsd:enumeration value="NCL"/>
+			<xsd:enumeration value="NZL"/>
+			<xsd:enumeration value="NER"/>
+			<xsd:enumeration value="NGA"/>
+			<xsd:enumeration value="NIU"/>
+			<xsd:enumeration value="PRK"/>
+			<xsd:enumeration value="NOR"/>
+			<xsd:enumeration value="NFK"/>
+			<xsd:enumeration value="UGA"/>
+			<xsd:enumeration value="UKR"/>
+			<xsd:enumeration value="UZB"/>
+			<xsd:enumeration value="OMN"/>
+			<xsd:enumeration value="AUT"/>
+			<xsd:enumeration value="TMP"/>
+			<xsd:enumeration value="PAK"/>
+			<xsd:enumeration value="PLW"/>
+			<xsd:enumeration value="PAN"/>
+			<xsd:enumeration value="PNG"/>
+			<xsd:enumeration value="PRY"/>
+			<xsd:enumeration value="PER"/>
+			<xsd:enumeration value="SPM"/>
+			<xsd:enumeration value="PCN"/>
+			<xsd:enumeration value="POL"/>
+			<xsd:enumeration value="PRT"/>
+			<xsd:enumeration value="PRI"/>
+			<xsd:enumeration value="REU"/>
+			<xsd:enumeration value="ROM"/>
+			<xsd:enumeration value="RUS"/>
+			<xsd:enumeration value="RWA"/>
+			<xsd:enumeration value="WSM"/>
+			<xsd:enumeration value="ASM"/>
+			<xsd:enumeration value="SMR"/>
+			<xsd:enumeration value="STP"/>
+			<xsd:enumeration value="SAU"/>
+			<xsd:enumeration value="SEN"/>
+			<xsd:enumeration value="SYC"/>
+			<xsd:enumeration value="SLE"/>
+			<xsd:enumeration value="SGP"/>
+			<xsd:enumeration value="SVN"/>
+			<xsd:enumeration value="SVK"/>
+			<xsd:enumeration value="SLB"/>
+			<xsd:enumeration value="SOM"/>
+			<xsd:enumeration value="ESP"/>
+			<xsd:enumeration value="LKA"/>
+			<xsd:enumeration value="SDN"/>
+			<xsd:enumeration value="SUR"/>
+			<xsd:enumeration value="SJM"/>
+			<xsd:enumeration value="SWZ"/>
+			<xsd:enumeration value="SYR"/>
+			<xsd:enumeration value="TJK"/>
+			<xsd:enumeration value="TWN"/>
+			<xsd:enumeration value="TZA"/>
+			<xsd:enumeration value="THA"/>
+			<xsd:enumeration value="TGO"/>
+			<xsd:enumeration value="TKL"/>
+			<xsd:enumeration value="TON"/>
+			<xsd:enumeration value="TTO"/>
+			<xsd:enumeration value="TCD"/>
+			<xsd:enumeration value="CZE"/>
+			<xsd:enumeration value="TUN"/>
+			<xsd:enumeration value="TUR"/>
+			<xsd:enumeration value="TKM"/>
+			<xsd:enumeration value="TCA"/>
+			<xsd:enumeration value="TUV"/>
+			<xsd:enumeration value="URY"/>
+			<xsd:enumeration value="VUT"/>
+			<xsd:enumeration value="VAT"/>
+			<xsd:enumeration value="VEN"/>
+			<xsd:enumeration value="GBR"/>
+			<xsd:enumeration value="ARE"/>
+			<xsd:enumeration value="USA"/>
+			<xsd:enumeration value="UMI"/>
+			<xsd:enumeration value="VNM"/>
+			<xsd:enumeration value="VCT"/>
+			<xsd:enumeration value="WLF"/>
+			<xsd:enumeration value="ESH"/>
+			<xsd:enumeration value="BLR"/>
+			<xsd:enumeration value="ZAR"/>
+			<xsd:enumeration value="ZMB"/>
+			<xsd:enumeration value="ZWE"/>
+			<xsd:enumeration value="ZAF"/>
+			<xsd:enumeration value="KOR"/>
+			<xsd:enumeration value="SWE"/>
+			<xsd:enumeration value="CHE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="GeslachtType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="M"/>
+			<xsd:enumeration value="V"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BijzonderhedenType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="04"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SoortType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PP"/>
+			<xsd:enumeration value="RB"/>
+			<xsd:enumeration value="VI"/>
+			<xsd:enumeration value="VN"/>
+			<xsd:enumeration value="VV"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BeroepType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="000"/>
+			<xsd:enumeration value="011"/>
+			<xsd:enumeration value="012"/>
+			<xsd:enumeration value="013"/>
+			<xsd:enumeration value="014"/>
+			<xsd:enumeration value="021"/>
+			<xsd:enumeration value="022"/>
+			<xsd:enumeration value="023"/>
+			<xsd:enumeration value="024"/>
+			<xsd:enumeration value="031"/>
+			<xsd:enumeration value="032"/>
+			<xsd:enumeration value="033"/>
+			<xsd:enumeration value="034"/>
+			<xsd:enumeration value="041"/>
+			<xsd:enumeration value="042"/>
+			<xsd:enumeration value="043"/>
+			<xsd:enumeration value="044"/>
+			<xsd:enumeration value="051"/>
+			<xsd:enumeration value="052"/>
+			<xsd:enumeration value="053"/>
+			<xsd:enumeration value="054"/>
+			<xsd:enumeration value="061"/>
+			<xsd:enumeration value="062"/>
+			<xsd:enumeration value="063"/>
+			<xsd:enumeration value="064"/>
+			<xsd:enumeration value="071"/>
+			<xsd:enumeration value="072"/>
+			<xsd:enumeration value="073"/>
+			<xsd:enumeration value="074"/>
+			<xsd:enumeration value="081"/>
+			<xsd:enumeration value="082"/>
+			<xsd:enumeration value="083"/>
+			<xsd:enumeration value="084"/>
+			<xsd:enumeration value="091"/>
+			<xsd:enumeration value="092"/>
+			<xsd:enumeration value="093"/>
+			<xsd:enumeration value="101"/>
+			<xsd:enumeration value="102"/>
+			<xsd:enumeration value="103"/>
+			<xsd:enumeration value="111"/>
+			<xsd:enumeration value="112"/>
+			<xsd:enumeration value="113"/>
+			<xsd:enumeration value="121"/>
+			<xsd:enumeration value="122"/>
+			<xsd:enumeration value="123"/>
+			<xsd:enumeration value="131"/>
+			<xsd:enumeration value="132"/>
+			<xsd:enumeration value="133"/>
+			<xsd:enumeration value="134"/>
+			<xsd:enumeration value="141"/>
+			<xsd:enumeration value="142"/>
+			<xsd:enumeration value="143"/>
+			<xsd:enumeration value="144"/>
+			<xsd:enumeration value="151"/>
+			<xsd:enumeration value="152"/>
+			<xsd:enumeration value="154"/>
+			<xsd:enumeration value="161"/>
+			<xsd:enumeration value="162"/>
+			<xsd:enumeration value="163"/>
+			<xsd:enumeration value="164"/>
+			<xsd:enumeration value="171"/>
+			<xsd:enumeration value="172"/>
+			<xsd:enumeration value="173"/>
+			<xsd:enumeration value="174"/>
+			<xsd:enumeration value="181"/>
+			<xsd:enumeration value="182"/>
+			<xsd:enumeration value="183"/>
+			<xsd:enumeration value="184"/>
+			<xsd:enumeration value="191"/>
+			<xsd:enumeration value="192"/>
+			<xsd:enumeration value="193"/>
+			<xsd:enumeration value="201"/>
+			<xsd:enumeration value="202"/>
+			<xsd:enumeration value="203"/>
+			<xsd:enumeration value="204"/>
+			<xsd:enumeration value="205"/>
+			<xsd:enumeration value="206"/>
+			<xsd:enumeration value="207"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DienstVerbandType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="04"/>
+			<xsd:enumeration value="05"/>
+			<xsd:enumeration value="06"/>
+			<xsd:enumeration value="07"/>
+			<xsd:enumeration value="08"/>
+			<xsd:enumeration value="09"/>
+			<xsd:enumeration value="10"/>
+			<xsd:enumeration value="11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BurgerlijkeStaatType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="04"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AardOverigInkType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="04"/>
+			<xsd:enumeration value="05"/>
+			<xsd:enumeration value="06"/>
+			<xsd:enumeration value="07"/>
+			<xsd:enumeration value="08"/>
+			<xsd:enumeration value="09"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SoortAanvraagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="04"/>
+			<xsd:enumeration value="05"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BerekWijzeTermBedrgType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="04"/>
+			<xsd:enumeration value="05"/>
+			<xsd:enumeration value="06"/>
+			<xsd:enumeration value="07"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BestedingsdoelType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="04"/>
+			<xsd:enumeration value="05"/>
+			<xsd:enumeration value="06"/>
+			<xsd:enumeration value="07"/>
+			<xsd:enumeration value="08"/>
+			<xsd:enumeration value="09"/>
+			<xsd:enumeration value="10"/>
+			<xsd:enumeration value="99"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ResultaatToetsType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="04"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SoortAdresType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WijzeUitbetalenType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="99"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WijzeBetalenType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ToetsSoortType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="M"/>
+			<xsd:enumeration value="N"/>
+			<xsd:enumeration value="S"/>
+			<xsd:enumeration value="W"/>
+			<xsd:enumeration value="Z"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SoortKredietType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BV"/>
+			<xsd:enumeration value="CC"/>
+			<xsd:enumeration value="DB"/>
+			<xsd:enumeration value="EK"/>
+			<xsd:enumeration value="HK"/>
+			<xsd:enumeration value="HY"/>
+			<xsd:enumeration value="KP"/>
+			<xsd:enumeration value="OL"/>
+			<xsd:enumeration value="PL"/>
+			<xsd:enumeration value="RK"/>
+			<xsd:enumeration value="RO"/>
+			<xsd:enumeration value="SB"/>
+			<xsd:enumeration value="SK"/>
+			<xsd:enumeration value="TC"/>
+			<xsd:enumeration value="UB"/>
+			<xsd:enumeration value="VK"/>
+			<xsd:enumeration value="WP"/>
+			<xsd:enumeration value="ZA"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodeBKRBijzType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="A"/>
+			<xsd:enumeration value="H"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodeBKRTekstType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="04"/>
+			<xsd:enumeration value="05"/>
+			<xsd:enumeration value="06"/>
+			<xsd:enumeration value="07"/>
+			<xsd:enumeration value="10"/>
+			<xsd:enumeration value="11"/>
+			<xsd:enumeration value="12"/>
+			<xsd:enumeration value="13"/>
+			<xsd:enumeration value="BB"/>
+			<xsd:enumeration value="CC"/>
+			<xsd:enumeration value="DD"/>
+			<xsd:enumeration value="EE"/>
+			<xsd:enumeration value="FF"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ToetsAntwoordType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="7"/>
+			<xsd:enumeration value="8"/>
+			<xsd:enumeration value="9"/>
+			<xsd:enumeration value="11"/>
+			<xsd:enumeration value="12"/>
+			<xsd:enumeration value="13"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="DtType">
+		<xsd:sequence>
+			<xsd:element name="Dag" type="DagType"/>
+			<xsd:element name="Maand" type="MaandType"/>
+			<xsd:element name="Jaar" type="JaarType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TijdType">
+		<xsd:sequence>
+			<xsd:element name="Uur" type="UrenType"/>
+			<xsd:element name="Minuten" type="MinutenType"/>
+			<xsd:element name="Seconden" type="SecondenType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="DagType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="31"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MaandType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="JaarType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:pattern value="\d{4}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UrenType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="23"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MinutenType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="59"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SecondenType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="59"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="TekstRegelType">
+		<xsd:simpleContent>
+			<xsd:extension base="string70Type">
+				<xsd:attribute name="Regelnummer" type="xsd:positiveInteger" use="required"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="HeaderTekstType">
+		<xsd:sequence>
+			<xsd:element name="TekstRegel" type="TekstRegelType" maxOccurs="99"/>
+		</xsd:sequence>
+		<xsd:attribute name="Volgnummer" type="xsd:positiveInteger" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="string70Type">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="70"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string50Type">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string35Type">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="35"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string24Type">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="24"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string20Type">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string17Type">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="17"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="string12Type">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="12"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AanvraagVolgNrType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="99999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AanvraagVersieType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TussenpersoonNrType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AanvraagNrMaatschappijType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VoorLettersType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="VoorVoegselType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TelefoonNrType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RekeningNrType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="9999999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SociaalFiscaalNrType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="999999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BedragType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:pattern value="\d{1,7}\.\d{0,2}"/>
+		</xsd:restriction>
+		<!--xsd:maxInclusive value="999999999"/-->
+	</xsd:simpleType>
+	<xsd:simpleType name="HuisNrType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="99999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="HuisNrToevoegingType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="7"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PlaatsNaamType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="24"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PostcodeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="KinderenAantalType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="99"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PctType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:pattern value="\d{1,6}\.\d{0,2}"/>
+		</xsd:restriction>
+		<!--xsd:maxInclusive value="99999999"/-->
+	</xsd:simpleType>
+	<xsd:simpleType name="MndType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AantalLevORType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="99"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BKRPostcodeDecType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:pattern value="\d{4}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BKRPostcodeLetType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BKRVolgNrType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AantalContractType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BKRHuisNrType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="KredVolgNrType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BKRBedragType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="999999999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SubVolgnummerType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WeekNrType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="52"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="WeekRegistratieType">
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:maxInclusive value="5399"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EmailadresType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="256"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SoortVerblijfsvergunningType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="01"/>
+			<xsd:enumeration value="02"/>
+			<xsd:enumeration value="03"/>
+			<xsd:enumeration value="04"/>
+			<xsd:enumeration value="05"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SoortLeningType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AK"/>
+			<xsd:enumeration value="HY"/>
+			<xsd:enumeration value="RH"/>
+			<xsd:enumeration value="RK"/>
+			<xsd:enumeration value="RO"/>
+			<xsd:enumeration value="SR"/>
+			<xsd:enumeration value="VK"/>
+			<xsd:enumeration value="ZK"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="TechAck" type="TechAckType"/>
+	<xsd:complexType name="TechAckType">
+		<xsd:sequence>
+			<xsd:element name="Header" type="HeaderType"/>
+			<xsd:element name="IndicatieVerwerkingGestartSuccesvol" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
